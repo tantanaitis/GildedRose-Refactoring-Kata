@@ -28,7 +28,6 @@ class GildedRose {
                     .withAgedBrieQualityIncrease()
                     .withRegularSellInDecrease()
                     .build();
-//                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new AgedBrieQualityIncreaseDecorator(new ItemWrapper(items[i])));
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;
@@ -40,17 +39,24 @@ class GildedRose {
                 continue;
             }
             if ("Backstage passes to a TAFKAL80ETC concert".equals(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(
-                    new QualityToZeroOnSellInDateDecorator(
-                        new QualityIncreaseOnSellInDateConditionDecorator(
-                            new QualityIncreaseOnSellInDateConditionDecorator(
-                                new AgedBrieQualityIncreaseDecorator(
-                                    new ItemWrapper(items[i])
-                                ),
-                10),
-            5)
-                    )
-                );
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withAgedBrieQualityIncrease()
+                    .withQualityIncreaseOnSellInDateCondition(10)
+                    .withQualityIncreaseOnSellInDateCondition(5)
+                    .withQualityToZeroOnSellinDate()
+                    .withRegularSellInDecrease()
+                    .build();
+//                NonDecoratableItem item = new RegularSellInDecreaseDecorator(
+//                    new QualityToZeroOnSellInDateDecorator(
+//                        new QualityIncreaseOnSellInDateConditionDecorator(
+//                            new QualityIncreaseOnSellInDateConditionDecorator(
+//                                new AgedBrieQualityIncreaseDecorator(
+//                                    new ItemWrapper(items[i])
+//                                ),
+//                10),
+//            5)
+//                    )
+//                );
                 int newSellIn = item.getSellIn();
                 int newQuality = item.getQuality();
                 items[i].quality = newQuality;
