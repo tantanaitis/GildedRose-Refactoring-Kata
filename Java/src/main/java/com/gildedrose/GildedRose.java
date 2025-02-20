@@ -46,17 +46,6 @@ class GildedRose {
                     .withQualityToZeroOnSellinDate()
                     .withRegularSellInDecrease()
                     .build();
-//                NonDecoratableItem item = new RegularSellInDecreaseDecorator(
-//                    new QualityToZeroOnSellInDateDecorator(
-//                        new QualityIncreaseOnSellInDateConditionDecorator(
-//                            new QualityIncreaseOnSellInDateConditionDecorator(
-//                                new AgedBrieQualityIncreaseDecorator(
-//                                    new ItemWrapper(items[i])
-//                                ),
-//                10),
-//            5)
-//                    )
-//                );
                 int newSellIn = item.getSellIn();
                 int newQuality = item.getQuality();
                 items[i].quality = newQuality;
