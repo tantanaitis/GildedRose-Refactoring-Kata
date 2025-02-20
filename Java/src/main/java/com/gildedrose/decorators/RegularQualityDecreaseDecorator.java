@@ -9,12 +9,13 @@ public class RegularQualityDecreaseDecorator extends ItemDecorator {
 
     @Override
     public int getQuality() {
-        if (super.getQuality() < 0) {
-            return super.getQuality();
+        int quality = super.getQuality();
+        if (quality < 0) {
+            return quality;
         }
         if (super.getSellIn() > 0) {
-            return Math.max(super.getQuality() - 1, 0);
+            return Math.max(quality - 1, 0);
         }
-        return Math.max(super.getQuality() - 2, 0);
+        return Math.max(quality - 2, 0);
     }
 }
