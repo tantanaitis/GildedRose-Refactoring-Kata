@@ -14,7 +14,14 @@ class GildedRose {
 
         for (int i = 0; i < items.length; i++) {
             if (!SPECIAL_ITEM_NAMES.contains(items[i].name)) {
-                DecoratableItem item =new RegularSellInDecreaseDecorator(new RegularQualityDecreaseDecorator(new ItemWrapper(items[i])));
+                DecoratableItem item = new RegularSellInDecreaseDecorator(new RegularQualityDecreaseDecorator(new ItemWrapper(items[i])));
+                items[i].sellIn = item.getSellIn();
+                items[i].quality  = item.getQuality();
+                continue;
+            }
+
+            if ("Aged Brie".equals(items[i].name)) {
+                DecoratableItem item = new RegularSellInDecreaseDecorator(new AgedBrieQualityIncreaseDecorator(new ItemWrapper(items[i])));
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;
