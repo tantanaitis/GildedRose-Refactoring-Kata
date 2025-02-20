@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
     @Test
-    void regularItemSellInNotZeroTest() {
+    void regularItemSellInNotZeroSellInDecreasesBy1AndQualityDecreasesBy1Test() {
         Item[] items = new Item[] { new Item("regular", 1, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -17,7 +17,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void regularItemSellInZeroAndQuality2Test() {
+    void regularItemSellInZeroSellInDecreasesBy1AndQualityDecreasesBy2Test() {
         Item[] items = new Item[] { new Item("regular", 0, 2) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -27,7 +27,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void regularItemSellInZeroAndQuality1Test() {
+    void regularItemSellInZeroSellInDecreasesBy1AndQualityDecreasesBy2ButNotBelowZeroTest() {
         Item[] items = new Item[] { new Item("regular", 0, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
