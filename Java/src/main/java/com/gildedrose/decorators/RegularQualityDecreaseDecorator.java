@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.decorators;
+
+import com.gildedrose.item.DecoratableItem;
 
 public class RegularQualityDecreaseDecorator extends ItemDecorator {
     public RegularQualityDecreaseDecorator(DecoratableItem item) {

@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.decorators;
+
+import com.gildedrose.item.DecoratableItem;
 
 public class QualityIncreaseOnSellInDateConditionDecorator extends ItemDecorator {
     private final int sellInTrigger;

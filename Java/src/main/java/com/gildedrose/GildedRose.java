@@ -1,5 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.item.DecoratableItemBuilder;
+import com.gildedrose.item.LegendaryItemWrapper;
+import com.gildedrose.item.NonDecoratableItem;
+
 import java.util.Arrays;
 import java.util.List;
 
