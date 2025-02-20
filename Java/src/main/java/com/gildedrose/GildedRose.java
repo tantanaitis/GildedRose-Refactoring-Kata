@@ -14,7 +14,10 @@ class GildedRose {
 
         for (int i = 0; i < items.length; i++) {
             if (!SPECIAL_ITEM_NAMES.contains(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new RegularQualityDecreaseDecorator(new ItemWrapper(items[i])));
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withRegularQualityDecrease()
+                    .withRegularSellInDecrease()
+                    .build();
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;

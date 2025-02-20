@@ -2,7 +2,8 @@ package com.gildedrose;
 
 public class DecoratableItemBuilder {
     private DecoratableItem item;
-    public DecoratableItemBuilder(DecoratableItem item) {
+
+    private DecoratableItemBuilder(DecoratableItem item) {
         this.item = item;
     }
 
@@ -29,5 +30,13 @@ public class DecoratableItemBuilder {
     public DecoratableItemBuilder withQualityIncreaseOnSellInDateCondition(int sellInTrigger) {
         this.item = new QualityIncreaseOnSellInDateConditionDecorator(this.item, sellInTrigger);
         return this;
+    }
+
+    public static DecoratableItemBuilder from(Item item) {
+        return new DecoratableItemBuilder(new ItemWrapper(item));
+    }
+
+    public DecoratableItem build() {
+        return this.item;
     }
 }
