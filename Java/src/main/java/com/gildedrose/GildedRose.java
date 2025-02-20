@@ -14,14 +14,20 @@ class GildedRose {
 
         for (int i = 0; i < items.length; i++) {
             if (!SPECIAL_ITEM_NAMES.contains(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new RegularQualityDecreaseDecorator(new ItemWrapper(items[i])));
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withRegularQualityDecrease()
+                    .withRegularSellInDecrease()
+                    .build();
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;
             }
 
             if ("Aged Brie".equals(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new AgedBrieQualityIncreaseDecorator(new ItemWrapper(items[i])));
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withAgedBrieQualityIncrease()
+                    .withRegularSellInDecrease()
+                    .build();
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;
@@ -33,17 +39,13 @@ class GildedRose {
                 continue;
             }
             if ("Backstage passes to a TAFKAL80ETC concert".equals(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(
-                    new QualityToZeroDecoratorOnSellInDate(
-                        new QualityIncreaseOnSellInDateConditionDecorator(
-                            new QualityIncreaseOnSellInDateConditionDecorator(
-                                new AgedBrieQualityIncreaseDecorator(
-                                    new ItemWrapper(items[i])
-                                ),
-                10),
-            5)
-                    )
-                );
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withAgedBrieQualityIncrease()
+                    .withQualityIncreaseOnSellInDateCondition(10)
+                    .withQualityIncreaseOnSellInDateCondition(5)
+                    .withQualityToZeroOnSellinDate()
+                    .withRegularSellInDecrease()
+                    .build();
                 int newSellIn = item.getSellIn();
                 int newQuality = item.getQuality();
                 items[i].quality = newQuality;
