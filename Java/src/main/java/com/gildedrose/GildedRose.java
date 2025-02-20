@@ -34,7 +34,7 @@ class GildedRose {
             }
             if ("Backstage passes to a TAFKAL80ETC concert".equals(items[i].name)) {
                 NonDecoratableItem item = new RegularSellInDecreaseDecorator(
-                    new QualityToZeroDecoratorOnSellInDate(
+                    new QualityToZeroOnSellInDateDecorator(
                         new QualityIncreaseOnSellInDateConditionDecorator(
                             new QualityIncreaseOnSellInDateConditionDecorator(
                                 new AgedBrieQualityIncreaseDecorator(

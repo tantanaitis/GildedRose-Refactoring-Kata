@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-public class QualityToZeroDecoratorOnSellInDate extends ItemDecorator {
-    public QualityToZeroDecoratorOnSellInDate(DecoratableItem item) {
+public class QualityToZeroOnSellInDateDecorator extends ItemDecorator {
+    public QualityToZeroOnSellInDateDecorator(DecoratableItem item) {
         super(item);
     }
 
