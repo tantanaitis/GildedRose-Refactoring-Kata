@@ -37,6 +37,16 @@ class GildedRoseTest {
     }
 
     @Test
+    void regularItemSellInZeroQualityMinus1QualityDoesNotChangeTest() {
+        Item[] items = new Item[] { new Item("regular", 0, -1) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("regular", app.items[0].name);
+        assertEquals(-1, app.items[0].sellIn);
+        assertEquals(-1, app.items[0].quality);
+    }
+
+    @Test
     void agedBrieSellInNotZeroSellInDecreasesQualityIncreasesTest() {
         Item[] items = new Item[] { new Item("Aged Brie", 1, 1) };
         GildedRose app = new GildedRose(items);
