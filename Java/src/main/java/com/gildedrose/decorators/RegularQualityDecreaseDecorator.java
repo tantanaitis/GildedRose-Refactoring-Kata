@@ -12,7 +12,7 @@ public class RegularQualityDecreaseDecorator extends ItemDecorator {
         if (super.getQuality() < 0) {
             return super.getQuality();
         }
-        if (super.getSellIn() >= 0) {
+        if (super.getSellIn() > 0) {
             return Math.max(super.getQuality() - 1, 0);
         }
         return Math.max(super.getQuality() - 2, 0);
