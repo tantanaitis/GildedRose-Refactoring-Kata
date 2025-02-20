@@ -1,7 +1,4 @@
 package com.gildedrose;
 
-public interface DecoratableItem {
-    String getName();
-    int getSellIn();
-    int getQuality();
+public interface DecoratableItem extends NonDecoratableItem {
 }
