@@ -22,7 +22,7 @@ public class DecoratableItemBuilder {
         return this;
     }
 
-    public DecoratableItemBuilder witAgedBrieQualityIncrease() {
+    public DecoratableItemBuilder withAgedBrieQualityIncrease() {
         this.item = new AgedBrieQualityIncreaseDecorator(this.item);
         return this;
     }

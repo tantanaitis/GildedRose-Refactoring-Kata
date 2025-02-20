@@ -24,7 +24,11 @@ class GildedRose {
             }
 
             if ("Aged Brie".equals(items[i].name)) {
-                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new AgedBrieQualityIncreaseDecorator(new ItemWrapper(items[i])));
+                NonDecoratableItem item = DecoratableItemBuilder.from(items[i])
+                    .withAgedBrieQualityIncrease()
+                    .withRegularSellInDecrease()
+                    .build();
+//                NonDecoratableItem item = new RegularSellInDecreaseDecorator(new AgedBrieQualityIncreaseDecorator(new ItemWrapper(items[i])));
                 items[i].sellIn = item.getSellIn();
                 items[i].quality  = item.getQuality();
                 continue;
