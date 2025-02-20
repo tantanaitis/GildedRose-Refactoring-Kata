@@ -23,6 +23,12 @@ public class ItemFactory {
                     .build();
             case "Sulfuras, Hand of Ragnaros":
                 return new LegendaryItemWrapper(item);
+            case "Conjured":
+                return DecoratableItemBuilder.from(item)
+                    .withRegularQualityDecrease()
+                    .withRegularQualityDecrease()
+                    .withRegularSellInDecrease()
+                    .build();
             default:
                return DecoratableItemBuilder.from(item)
                     .withRegularQualityDecrease()
