@@ -1,4 +1,7 @@
-package com.gildedrose;
+package com.gildedrose.item;
+
+import com.gildedrose.Item;
+import com.gildedrose.decorators.*;
 
 public class DecoratableItemBuilder {
     private DecoratableItem item;

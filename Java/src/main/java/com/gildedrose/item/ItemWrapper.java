@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.item;
+
+import com.gildedrose.Item;
 
 public class ItemWrapper implements DecoratableItem {
     private final Item item;

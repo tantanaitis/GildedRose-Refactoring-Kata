@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
 public interface NonDecoratableItem  {
     String getName();

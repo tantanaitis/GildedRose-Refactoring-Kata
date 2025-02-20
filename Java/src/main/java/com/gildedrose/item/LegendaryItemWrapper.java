@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.item;
+
+import com.gildedrose.Item;
 
 public final class LegendaryItemWrapper implements NonDecoratableItem {
     private final Item item;
