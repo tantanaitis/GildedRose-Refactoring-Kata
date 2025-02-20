@@ -75,4 +75,61 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].sellIn);
         assertEquals(80, app.items[0].quality);
     }
+
+    @Test
+    void backstagePassSellInOver10QualityIncreasesBy1Test() {
+        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 11, 0)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(10, app.items[0].sellIn);
+        assertEquals(1, app.items[0].quality);
+    }
+
+
+    @Test
+    void backstagePassSellInBetween10And5QualityIncreasesBy2Test() {
+        int initialSellIn = 10;
+        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", initialSellIn, 0)};
+        GildedRose app = new GildedRose(items);
+        for (int i = 1; i <= 5; i++) {
+            app.updateQuality();
+            assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+            assertEquals(initialSellIn-i, app.items[0].sellIn);
+            assertEquals(i*2, app.items[0].quality);
+        }
+    }
+
+    @Test
+    void backstagePassSellInBetween5AndZeroQualityIncreasesBy3Test() {
+        int initialSellIn = 5;
+        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", initialSellIn, 0)};
+        GildedRose app = new GildedRose(items);
+        for (int i = 1; i <= 5; i++) {
+            app.updateQuality();
+            assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+            assertEquals(initialSellIn-i, app.items[0].sellIn);
+            assertEquals(i*3, app.items[0].quality);
+        }
+    }
+
+    @Test
+    void backstagePassSellInMinus1QualityDecreasesToZeroTest() {
+        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", -1, 10)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(-2, app.items[0].sellIn);
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
+    void backstagePassSellInMinus1AndQualityMinus1QualityIncreasesToZeroTest() {
+        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", -1, -1)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(-2, app.items[0].sellIn);
+        assertEquals(0, app.items[0].quality);
+    }
 }
